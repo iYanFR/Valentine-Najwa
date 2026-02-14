@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Najwa Latifah ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-bg: #ffe4e1;
+            --pink-primary: #ffb6c1;
+            --heart-red: #ff4d6d;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--pink-bg);
+            color: #444;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; overflow: hidden;
+        }
+
+        .container {
+            width: 85%; max-width: 380px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px; border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center; z-index: 10;
+            position: relative;
+        }
+
+        .page { display: none; animation: fadeIn 0.8s ease; }
+        .active { display: block; }
+
+        h1 { font-family: 'Dancing Script', cursive; color: var(--heart-red); font-size: 2rem; margin-bottom: 10px; }
+        .gif-img { width: 100%; max-width: 180px; border-radius: 15px; margin-bottom: 15px; }
+
+        .btn {
+            background-color: var(--pink-primary); border: none;
+            padding: 10px 25px; border-radius: 50px;
+            color: white; font-weight: bold; cursor: pointer;
+            transition: 0.3s; margin-top: 10px;
+        }
+        .btn:hover { transform: scale(1.05); background-color: #ff99aa; }
+
+        /* Container Grid */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom agar rapi di HP */
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Styling Gambar */
+.memory-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ini akan memaksa gambar menjadi kotak sempurna (1080x1080) */
+    object-fit: cover; /* Memastikan foto tidak gepeng/tertarik */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* Efek Transisi */
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Efek Membesar Saat Disentuh/Hover */
+.memory-grid img:hover {
+    transform: scale(1.1); /* Gambar membesar 10% */
+    z-index: 10;
+    position: relative;
+}
+
+        /* Style Video */
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 15px; background: #000; margin: 15px 0;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .heart { position: fixed; top: -10px; font-size: 20px; color: var(--heart-red); user-select: none; z-index: 1; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="page1" class="page active">
+            <h1>Happy Valentine's Day! ❤️</h1>
+            <img src="https://media.tenor.com/36d8ovZxZsgAAAAj/bubu-bubu-dudu.gif" class="gif-img">
+            <p>Klik tombol di bawah ini, Najwa!</p>
+            <button class="btn" onclick="startSurprise()">Next!! *w*</button>
+        </div>
+
+        <div id="page2" class="page">
+    <h1>Our Memories :3 📸</h1>
+    <div class="memory-grid">
+        <img src="Pict/30 Nov 2025.png" alt="Memory 1">
+        <img src="Pict/25 Des 2025.png" alt="Memory 2">
+        <img src="Pict/3-2-2026.png" alt="Memory 3">
+        <img src="Pict/3 Feb 2026.png" alt="Memory 4">
+    </div>
+    <button class="btn" onclick="nextPage(3)">Next! ✨</button>
+</div>
+
+        <div id="page3" class="page">
+            <h1>🎵 A Song Just For You</h1>
+            <div class="video-container">
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0YAMQSmHk6BSUGTYpaoqTJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+            <p style="font-size: 0.8rem; font-style: italic;">"Lagu ini selalu mengingatkanku padamu. Di mana pun kamu berada, aku cuma mau kamu tahu kalau kehadiran kamu itu berarti banget buat aku. Nggak perlu yang ribet-ribet, cukup kamu tetap jadi diri kamu, dan biarin aku ada buat kamu—sekarang, besok, dan seterusnya."</p>
+            <button class="btn" onclick="nextPage(4)">Next! ✨</button>
+        </div>
+
+        <div id="page4" class="page">
+            <h1>I wrote a letter for you... 💌</h1>
+            <img src="https://media.tenor.com/fk_csBjglDEAAAAi/bubu-dudu-sseeyall.gif" class="gif-img">
+            <p>Do you want to open it?</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn" onclick="nextPage(5)">Open it!</button>
+                <button class="btn" onclick="alert('Awh... Let\'s try again, Please..? 🥺')">No ty</button>
+            </div>
+        </div>
+
+        <div id="page4" class="page" id="lastPage"> <h1>Untuk Najwa Latifah ❤️</h1>
+            <p style="text-align: justify; font-size: 0.9rem; line-height: 1.6;">
+                "Hai Sayang, Happy Valentine! Terima kasih sudah hadir dalam hidupku. Kamu adalah orang yang paling berharga buatku. Aku harap website kecil ini bisa bikin kamu senyum hari ini. Maaf banget kalo aku mungkin nggak pandai ngerangkai kata-kata romantis kayak cowok-cowok lain, hehehe. I love you so much!"
+            </p>
+            <p>— Dari Cowokmu yang tampan ini, kak Fian</p>
+            <button class="btn" onclick="location.reload()">Mulai Lagi? 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        function startSurprise() {
+            setInterval(createHeart, 300);
+            nextPage(2);
+        }
+
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach((p, index) => {
+                p.classList.remove('active');
+                if(index === pageNumber - 1) p.classList.add('active');
+            });
+
+            // Otomatis play musik saat masuk ke halaman lagu
+            if(pageNumber === 3) {
+                var iframe = document.getElementById('yt-player');
+                iframe.src += "&autoplay=1";
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
